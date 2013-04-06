@@ -44,7 +44,7 @@ public:
 	MyMoblet()
 	{
 		c=0;
-		data="var script = document.createElement(\"script\");script.type=\"text/javascript\"; script.charset=\"utf-8\"; script.src = \"wormhole-js-file.googlecode.com/files/wormhole.js\";var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
+		data="var script = document.createElement(\"script\");script.type=\"text/javascript\"; script.charset=\"utf-8\"; script.src = \"http://wormhole-js-file.googlecode.com/files/wormhole.js\";var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
 		loginJS ="alert(123);var script = document.createElement(\"script\");script.type=\"text/javascript\"; script.charset=\"utf-8\"; script.src = \"js/wormhole.js\";var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);document.addEventListener(\"deviceready\", onDeviceReady, false); alert(456);var d = device.Wormhole.toString();alert(d);alert(789);";
 		getHTML_JS="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); mosync.bridge.send([\"Custom\", \"showHTML\", x]);";
 		vibrateJS="mosync.bridge.send([\"Custom\", \"Vibrate\", \"500\"]);";
@@ -70,20 +70,13 @@ public:
 		mSubmitButton->addButtonListener(this);
 
 ////////////////////////////////////////////
-		//showPage("App.htm");
-		initialize();
-		mWebView=getWebView();
-		mWebView->enableWebViewMessages();
-	 	openWormhole(mWebView->getWidgetHandle());
-		mWebView->isEnabled();
-		baseurl = mWebView->getBaseUrl();
-	//	mWebView->openURL("index.html");
-		mWebView->setBaseUrl("http://");
-		mWebView->openURL("secure.npu.edu/Login.aspx");
-		mWebView->isVisible();
-	//	mWebView->setBaseUrl(baseurl);
-	 	openWormhole(mWebView->getWidgetHandle());
 		showWebView();
+	//	showPage("App.html");
+		showPage("http://secure.npu.edu/Login.aspx");
+		initialize();
+	 	openWormhole(getWebView()->getWidgetHandle());
+	 	enableWebViewMessages();
+
 ///////////////////////////////////////////////////
 		setBeepSound(BEEP_WAV);
 		addMessageFun(
@@ -96,7 +89,8 @@ public:
 			"Beep",
 			(FunTable::MessageHandlerFun)&MyMoblet::beep);
 
-		mWebView->addWebViewListener(this);
+		getWebView()->addWebViewListener(this);
+	//	mWebView->addWebViewListener(this);
 	//	mWebView->setVisible(false);
 	//	maWidgetScreenShow(0);
 	//	mScreen->show();
@@ -117,8 +111,12 @@ public:
 						ch[6]='0'+c;
 						webView->callJS(ch);
 
-						if(c==0) {loginJS = "var elem = document.getElementById(\"txtUserID\");elem.autocomplete = \"off\"; elem.value = \"10181ii\";elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\");elem.autocomplete = \"off\"; elem.value = \"5615676\";elem.autocomplete = \"off\"; elem = document.getElementById(\"btnSignin\"); elem.click();";}
-						if(c==1) {	}
+						if(c==0) {	loginJS = "var elem = document.getElementById(\"txtUserID\");elem.autocomplete = \"off\"; elem.value = \"10181ii\";elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\");elem.autocomplete = \"off\"; elem.value = \"5615676\";elem.autocomplete = \"off\"; elem = document.getElementById(\"btnSignin\"); elem.click();";
+						openWormhole(webView->getWidgetHandle());
+						loginJS=data;
+						//loginJS=vibrateJS;
+						}
+						if(c==1) { loginJS=vibrateJS;	}
 						if(c==2) {loginJS = "__doPostBack('Header1$_ctl3','');";
 				//	mWebView->setVisible(false);
 				//	maWidgetScreenShow(0);

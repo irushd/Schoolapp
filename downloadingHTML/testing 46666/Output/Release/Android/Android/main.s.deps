@@ -1,10 +1,12 @@
-C:\MoSync\workspace\testing\ 46666\Output\Release\Android\Android\main.s:  \
- C:\MoSync\workspace\testing\ 46666\main.cpp c:/MoSync/include/ma.h \
-  c:/MoSync/include/maapi.h c:/MoSync/include/maapi_defs.h \
-  c:/MoSync/include/mavsprintf.h c:/MoSync/include/maarg.h \
-  c:/MoSync/include/mastring.h c:/MoSync/include/ma.h \
-  c:/MoSync/include/mactype.h c:/MoSync/include/MAUtil/Moblet.h \
-  c:/MoSync/include/maassert.h c:/MoSync/include/MAUtil/Environment.h \
+ \
+ C:\Users\prime\git\School\ App\downloadingHTML\testing\ 46666\Output\Release\Android\Android\main.s:  \
+ C:\Users\prime\git\School\ App\downloadingHTML\testing\ 46666\main.cpp \
+  c:/MoSync/include/ma.h c:/MoSync/include/maapi.h \
+  c:/MoSync/include/maapi_defs.h c:/MoSync/include/mavsprintf.h \
+  c:/MoSync/include/maarg.h c:/MoSync/include/mastring.h \
+  c:/MoSync/include/ma.h c:/MoSync/include/mactype.h \
+  c:/MoSync/include/MAUtil/Moblet.h c:/MoSync/include/maassert.h \
+  c:/MoSync/include/MAUtil/Environment.h \
   c:/MoSync/include/MAUtil/Vector.h \
   c:/MoSync/include/MAUtil/ListenerSet.h \
   c:/MoSync/include/NativeUI/Widgets.h \
@@ -136,4 +138,4 @@ C:\MoSync\workspace\testing\ 46666\Output\Release\Android\Android\main.s:  \
   c:/MoSync/include/Wormhole/Libs/JSNativeUI/ResourceMessageHandler.h \
   c:/MoSync/include/Wormhole/Encoder.h \
   c:/MoSync/include/NativeUI/WebViewListener.h \
-  C:/MoSync/workspace/testing\ 46666/Output/Release/Android/Android/MAHeaders.h
+  C:/Users/prime/git/School\ App/downloadingHTML/testing\ 46666/Output/Release/Android/Android/MAHeaders.h
