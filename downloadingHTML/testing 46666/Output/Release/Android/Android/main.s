@@ -912,7 +912,7 @@ Lscope21:
 Lscope22:
 .data
 LC0:
-	.ascii "var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'http://yourjavascript.com/471481453/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);\0"
+	.ascii "var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'https://irushd.opendrive.com/files/OV82MzkzODAxX0ZzY3RHXzQ5ZTE/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);\0"
 LC1:
 	.ascii "alert(123);var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'js/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);document.addEventListener('deviceready', onDeviceReady, false); alert(456);var d = device.Wormhole.toString();alert(d);alert(789);\0"
 LC2:
@@ -924,7 +924,7 @@ LC4:
 LC5:
 	.ascii "HTML\0"
 LC6:
-	.ascii "http://www.mosync.com\0"
+	.ascii "https://secure.npu.edu\0"
 	.align 4
 LC8:
 	.long	__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE

@@ -44,7 +44,7 @@ public:
 	MyMoblet()
 	{
 		c=0;
-		data="var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'http://yourjavascript.com/471481453/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
+		data="var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'https://irushd.opendrive.com/files/OV82MzkzODAxX0ZzY3RHXzQ5ZTE/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
 		loginJS ="alert(123);var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'js/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);document.addEventListener('deviceready', onDeviceReady, false); alert(456);var d = device.Wormhole.toString();alert(d);alert(789);";
 		getHTML_JS="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); mosync.bridge.send(['Custom', 'showHTML', x]);";
 		vibrateJS="mosync.bridge.send(['Custom', 'Vibrate', '500']);";
@@ -72,7 +72,7 @@ public:
 ////////////////////////////////////////////
 		showWebView();
 	//	showPage("App.html");
-		showPage("http://www.mosync.com");
+		showPage("https://secure.npu.edu");
 		initialize();
 	 	openWormhole(getWebView()->getWidgetHandle());
 	 	enableWebViewMessages();
