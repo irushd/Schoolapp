@@ -912,19 +912,19 @@ Lscope21:
 Lscope22:
 .data
 LC0:
-	.ascii "var script = document.createElement(\"script\");script.type=\"text/javascript\"; script.charset=\"utf-8\"; script.src = \"http://wormhole-js-file.googlecode.com/files/wormhole.js\";var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);\0"
+	.ascii "var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'http://yourjavascript.com/471481453/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);\0"
 LC1:
-	.ascii "alert(123);var script = document.createElement(\"script\");script.type=\"text/javascript\"; script.charset=\"utf-8\"; script.src = \"js/wormhole.js\";var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);document.addEventListener(\"deviceready\", onDeviceReady, false); alert(456);var d = device.Wormhole.toString();alert(d);alert(789);\0"
+	.ascii "alert(123);var script = document.createElement('script');script.type='text/javascript'; script.charset='utf-8'; script.src = 'js/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);document.addEventListener('deviceready', onDeviceReady, false); alert(456);var d = device.Wormhole.toString();alert(d);alert(789);\0"
 LC2:
-	.ascii "var x = document.getElementsByTagName('html')[0].innerHTML.toString(); mosync.bridge.send([\"Custom\", \"showHTML\", x]);\0"
+	.ascii "var x = document.getElementsByTagName('html')[0].innerHTML.toString(); mosync.bridge.send(['Custom', 'showHTML', x]);\0"
 LC3:
-	.ascii "mosync.bridge.send([\"Custom\", \"Vibrate\", \"500\"]);\0"
+	.ascii "mosync.bridge.send(['Custom', 'Vibrate', '500']);\0"
 LC4:
 	.ascii "center\0"
 LC5:
-	.ascii "Submit\0"
+	.ascii "HTML\0"
 LC6:
-	.ascii "http://secure.npu.edu/Login.aspx\0"
+	.ascii "http://www.mosync.com\0"
 	.align 4
 LC8:
 	.long	__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
@@ -1297,264 +1297,285 @@ Lscope26:
 .data
 LC15:
 	.ascii "alert(x);\0"
-LC16:
-	.ascii "var elem = document.getElementById(\"txtUserID\");elem.autocomplete = \"off\"; elem.value = \"10181ii\";elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\");elem.autocomplete = \"off\"; elem.value = \"5615676\";elem.autocomplete = \"off\"; elem = document.getElementById(\"btnSignin\"); elem.click();\0"
-LC19:
-	.ascii "var z =  document.getElementById('CourseList1_DropDownList');z.options.selectedIndex=3;__doPostBack('CourseList1$DropDownList','');\0"
-LC20:
-	.ascii "alert('Loading Wormhole.js');\0"
-LC17:
-	.ascii "__doPostBack('Header1$_ctl3','');\0"
 LC18:
+	.ascii "var z =  document.getElementById('CourseList1_DropDownList');z.options.selectedIndex=3;__doPostBack('CourseList1$DropDownList','');\0"
+LC19:
+	.ascii "alert('Loading Wormhole.js');\0"
+LC16:
+	.ascii "__doPostBack('Header1$_ctl3','');\0"
+LC17:
 	.ascii "__doPostBack('Left1$_ctl5','');\0"
 .code
 	.stabs	"_ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi:f(0,6)",36,0,108,__ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi
-	.stabs	"this:P(0,93)",64,0,108,5
-	.stabs	"webView:P(0,37)",64,0,108,6
+	.stabs	"this:P(0,93)",64,0,108,6
+	.stabs	"webView:P(0,37)",64,0,108,7
 	.stabs	"webViewState:P(0,89)",64,0,108,14
 
 .func __ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi, 3, void
 	.line 108
-	push rt,d3
+	push rt,d4
 	sub  sp,#0x10
 	ld   fr,sp
-	add  fr,#0x28
-	ld   d1,i0
-	ld   d2,i1
+	add  fr,#0x2c
+	ld   d2,i0
+	ld   d3,i1
 	.dlab LBB9
 	.dlab LBB10
 	.dlab LBB11
 	.line 109
-	ld   r0,#0x2
-	jc   eq,i2,r0,#L52
+	ld   r14,#0x2
+	jc   eq,i2,r14,#L53
 	.dlab LBE11
 	.dlab LBE10
 	.dlab LBE9
-	.line 154
+	.line 158
 	add  sp,#0x10
-	pop  rt,d3
+	pop  rt,d4
 	ret
-L52:
+L53:
 	.dlab LBB12
 	.dlab LBB13
 	.dlab LBB14
 	.dlab LBB15
 	.line 110
 	ld   d0,fr
-	add  d0,#0xffffffdc
+	add  d0,#0xffffffd8
 	ld   i0,d0
 	ld   i1,#LC15
 	ld   i2,#0xa
 	call &_memcpy ; call non-native
 	.line 111
-	ld   r14,[d1,248]
+	ld   r14,[d2,248]
 	add  r14,#0x30
-	ld.b [fr,-30],r14
+	ld.b [fr,-34],r14
 	.line 112
-	ld   d3,fr
-	add  d3,#0xffffffd8
-	ld   i0,d3
+	ld   d4,fr
+	add  d4,#0xffffffd4
+	ld   i0,d4
 	ld   i1,d0
 	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
-	ld   r14,[d2]
+	ld   r14,[d3]
 	ld   d0,[r14,256]
-	ld   i0,d2
-	ld   i1,d3
-	call d0 ; call non-native
 	ld   i0,d3
+	ld   i1,d4
+	call d0 ; call non-native
+	ld   i0,d4
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
 	.line 114
-	ld   r14,[d1,248]
-	ld   r0,#0x0
-	jc   eq,r14,r0,#L53
+	ld   d1,[d2,248]
+	ld   r14,#0x0
+	jc   eq,d1,r14,#L54
 L41:
-	.line 119
-	ld   r0,#0x1
-	jc   eq,r14,r0,#L51
-	.line 120
-	ld   r0,#0x2
-	jc   eq,r14,r0,#L54
-	.line 125
-	ld   r0,#0x3
-	jc   eq,r14,r0,#L55
-	.line 126
-	ld   r0,#0x4
-	jc   eq,r14,r0,#L56
-	.line 127
-	ld   r0,#0x5
-	jc   eq,r14,r0,#L57
-L46:
-	.line 148
-	ld   r0,#0x6
-	jc   eq,r14,r0,#L51
+	.line 122
+	ld   r14,#0x1
+	jc   eq,d1,r14,#L52
+	.line 123
+	ld   r14,#0x2
+	jc   eq,d1,r14,#L55
+	.line 128
+	ld   r14,#0x3
+	jc   eq,d1,r14,#L56
+	.line 129
+	ld   r14,#0x4
+	jc   eq,d1,r14,#L57
+	.line 130
+	ld   r14,#0x5
+	jc   eq,d1,r14,#L58
+L47:
 	.line 151
-	ld   r0,#0x0
-	jc   lt,r14,r0,#L48
-L49:
-	ld   i0,d3
-	ld   i1,[d1,220]
+	ld   r14,#0x6
+	jc   eq,d1,r14,#L52
+	.line 154
+	ld   r14,#0x0
+	jc   lt,d1,r14,#L49
+L50:
+	ld   i0,d4
+	ld   i1,[d2,220]
 	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
-	ld   r14,[d2]
+	ld   r14,[d3]
 	ld   d0,[r14,256]
-	ld   i0,d2
-	ld   i1,d3
-	call d0 ; call non-native
 	ld   i0,d3
+	ld   i1,d4
+	call d0 ; call non-native
+	ld   i0,d4
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	ld   r14,[d1,248]
-L48:
-	.line 152
-	add  r14,#0x1
-	ld   [d1,248],r14
+	ld   d1,[d2,248]
+L49:
+	.line 155
+	add  d1,#0x1
+	ld   [d2,248],d1
+	.line 156
+	ld   i0,d4
+	ld   i1,[d2,228]
+	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
+	ld   r14,[d3]
+	ld   d0,[r14,256]
+	ld   i0,d3
+	ld   i1,d4
+	call d0 ; call non-native
+	ld   i0,d4
+	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
 	.dlab LBE15
 	.dlab LBE14
 	.dlab LBE13
 	.dlab LBE12
-	.line 154
+	.line 158
 	add  sp,#0x10
-	pop  rt,d3
+	pop  rt,d4
 	ret
-L53:
+L54:
 	.dlab LBB16
 	.dlab LBB17
 	.dlab LBB18
 	.dlab LBB19
-	.line 114
-	ld   r14,#LC16
-	ld   [d1,220],r14
-	.line 115
-	ld   r14,[d2]
-	ld   d0,[r14,12]
-	ld   i0,d2
-	call d0 ; call non-native
-	ld   r0,[d1]
-	ld   d0,[r0,88]
-	ld   i0,d1
-	ld   i1,r14
-	call d0 ; call non-native
 	.line 116
-	ld   r0,[d1,232]
-	ld   [d1,220],r0
-	ld   r14,[d1,248]
+	ld   r14,[d2,232]
+	ld   [d2,220],r14
+	.line 118
+	ld   r14,[d3]
+	ld   d0,[r14,132]
+	ld   i0,d3
+	ld   i1,d1
+	call d0 ; call non-native
+	.dlab LBB20
+	.dlab LBB21
+	.stabs	"c:/MoSync/include/IX_WIDGET.h",132,0,0,Ltext8
+Ltext8:
+	.line 4941
+	ld   i0,#0x79
+	ld   i1,d1
+	ld   i2,d1
+	ld   i3,d1
+	call &_maIOCtl ; call non-native
+	.dlab LBE21
+	.dlab LBE20
+	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext9
+Ltext9:
+	.line 120
+	ld   i0,[d2,216]
+	ld   r14,[i0]
+	ld   d0,[r14,160]
+	call d0 ; call non-native
+	ld   d1,[d2,248]
 	jp   #L41
-L56:
-	.line 126
-	ld   r14,#LC19
-	.line 149
-	ld   [d1,220],r14
-	jp   #L49
 L57:
-	.line 127
-	ld   r14,[d1,232]
-	ld   [d1,220],r14
-	.line 128
-	ld   i0,d3
-	ld   i1,#LC20
-	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
-	ld   r14,[d2]
-	ld   d0,[r14,256]
-	ld   i0,d2
-	ld   i1,d3
-	call d0 ; call non-native
-	ld   i0,d3
-	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
 	.line 129
-	ld   r14,[d2]
-	ld   d0,[r14,12]
-	ld   i0,d2
+	ld   r14,#LC18
+	.line 152
+	ld   [d2,220],r14
+	jp   #L50
+L58:
+	.line 130
+	ld   r14,[d2,232]
+	ld   [d2,220],r14
+	.line 131
+	ld   i0,d4
+	ld   i1,#LC19
+	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
+	ld   r14,[d3]
+	ld   d0,[r14,256]
+	ld   i0,d3
+	ld   i1,d4
 	call d0 ; call non-native
-	ld   r0,[d1]
+	ld   i0,d4
+	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
+	.line 132
+	ld   r14,[d3]
+	ld   d0,[r14,12]
+	ld   i0,d3
+	call d0 ; call non-native
+	ld   r0,[d2]
 	ld   d0,[r0,88]
-	ld   i0,d1
+	ld   i0,d2
 	ld   i1,r14
 	call d0 ; call non-native
-	.line 130
-	ld   i0,d3
-	ld   i1,[d1,232]
+	.line 133
+	ld   i0,d4
+	ld   i1,[d2,232]
 	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
-	ld   r14,[d2]
+	ld   r14,[d3]
 	ld   d0,[r14,256]
-	ld   i0,d2
-	ld   i1,d3
+	ld   i0,d3
+	ld   i1,d4
 	call d0 ; call non-native
-	ld   i0,d3
+	ld   i0,d4
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	.line 131
-	ld   i0,d3
-	ld   i1,[d1,228]
+	.line 134
+	ld   i0,d4
+	ld   i1,[d2,228]
 	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
-	ld   r14,[d2]
+	ld   r14,[d3]
 	ld   d0,[r14,256]
-	ld   i0,d2
-	ld   i1,d3
-	call d0 ; call non-native
 	ld   i0,d3
+	ld   i1,d4
+	call d0 ; call non-native
+	ld   i0,d4
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	ld   r14,[d1,248]
-	jp   #L46
-L51:
-	.line 149
-	ld   r14,[d1,228]
-	ld   [d1,220],r14
-	jp   #L49
-L54:
-	.line 120
-	ld   r14,#LC17
-	.line 149
-	ld   [d1,220],r14
-	jp   #L49
+	ld   d1,[d2,248]
+	jp   #L47
+L52:
+	.line 152
+	ld   r14,[d2,228]
+	ld   [d2,220],r14
+	jp   #L50
 L55:
-	.line 125
-	ld   r14,#LC18
-	.line 149
-	ld   [d1,220],r14
-	jp   #L49
+	.line 123
+	ld   r14,#LC16
+	.line 152
+	ld   [d2,220],r14
+	jp   #L50
+L56:
+	.line 128
+	ld   r14,#LC17
+	.line 152
+	ld   [d2,220],r14
+	jp   #L50
 	.dlab LBE19
 	.dlab LBE18
 	.dlab LBE17
 	.dlab LBE16
-	.stabs	"ch:(0,94)=ar(2,57);0;9;(0,19)",128,0,110,-36
+	.stabs	"ch:(0,94)=ar(2,57);0;9;(0,19)",128,0,110,-40
 	.stabn	192,0,0,LBB15-__ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi
 	.stabn	224,0,0,LBE15-__ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi
-	.stabs	"ch:(0,94)",128,0,110,-36
+	.stabs	"ch:(0,94)",128,0,110,-40
 	.stabn	192,0,0,LBB19-__ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi
 	.stabn	224,0,0,LBE19-__ZN8MyMoblet21webViewContentLoadingEPN8NativeUI7WebViewEi
 Lscope27:
-	.stabs	"_ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE:f(0,6)",36,0,172,__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
-	.stabs	"this:P(0,93)",64,0,172,6
-	.stabs	"message:P(116,42)",64,0,172,5
+	.stabs	"_ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE:f(0,6)",36,0,176,__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
+	.stabs	"this:P(0,93)",64,0,176,6
+	.stabs	"message:P(116,42)",64,0,176,5
 
 .func __ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE, 2, void
-	.line 172
+	.line 176
 	push rt,d2
 	sub  sp,#0x4
 	ld   fr,sp
 	add  fr,#0x18
 	ld   d2,i0
 	ld   d1,i1
-	.dlab LBB20
-	.line 173
+	.dlab LBB22
+	.line 177
 	ld   i0,[i0,188]
 	ld   r14,[i0]
 	ld   d0,[r14,132]
 	ld   i1,#0x0
 	call d0 ; call non-native
-	.dlab LBB21
-	.stabs	"c:/MoSync/include/IX_WIDGET.h",132,0,0,Ltext8
-Ltext8:
+	.dlab LBB23
+	.stabs	"c:/MoSync/include/IX_WIDGET.h",132,0,0,Ltext10
+Ltext10:
 	.line 4941
 	ld   d0,#0x0
-	.dlab LBB22
+	.dlab LBB24
 	ld   i0,#0x79
 	ld   i1,d0
 	ld   i2,d0
 	ld   i3,d0
 	call &_maIOCtl ; call non-native
-	.dlab LBE22
-	.dlab LBE21
-	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext9
-Ltext9:
-	.line 175
+	.dlab LBE24
+	.dlab LBE23
+	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext11
+Ltext11:
+	.line 179
 	ld   i0,d1
 	ld   i1,d0
 	call &__ZN8Wormhole13MessageStream7getNextEPi ; call non-native
@@ -1570,32 +1591,32 @@ Ltext9:
 	call d1 ; call non-native
 	ld   i0,d0
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	.line 176
+	.line 180
 	ld   i0,[d2,216]
 	ld   r14,[i0]
 	ld   d0,[r14,160]
 	call d0 ; call non-native
-	.dlab LBE20
+	.dlab LBE22
 	add  sp,#0x4
 	pop  rt,d2
 	ret
 	.stabs	"screenHandle:r(16,1)",64,0,4941,4
-	.stabn	192,0,0,LBB21-__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
-	.stabn	224,0,0,LBE21-__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
+	.stabn	192,0,0,LBB23-__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
+	.stabn	224,0,0,LBE23-__ZN8MyMoblet8showHTMLERN8Wormhole13MessageStreamE
 Lscope28:
-	.stabs	"_ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE:f(0,6)",36,0,180,__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
-	.stabs	"this:P(0,93)",64,0,180,12
-	.stabs	"message:P(116,42)",64,0,180,13
+	.stabs	"_ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE:f(0,6)",36,0,184,__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
+	.stabs	"this:P(0,93)",64,0,184,12
+	.stabs	"message:P(116,42)",64,0,184,13
 
 .func __ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE, 2, void
-	.line 180
+	.line 184
 	push rt,d1
 	sub  sp,#0x4
 	ld   fr,sp
 	add  fr,#0x14
-	.dlab LBB23
-	.dlab LBB24
-	.line 181
+	.dlab LBB25
+	.dlab LBB26
+	.line 185
 	ld   i0,i1
 	ld   i1,#0x0
 	call &__ZN8Wormhole13MessageStream7getNextEPi ; call non-native
@@ -1610,49 +1631,49 @@ Lscope28:
 	ld   d1,r14
 	ld   i0,d0
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	.line 182
+	.line 186
 	ld   i0,d1
 	call &_maVibrate ; call non-native
-	.dlab LBE24
-	.dlab LBE23
+	.dlab LBE26
+	.dlab LBE25
 	add  sp,#0x4
 	pop  rt,d1
 	ret
-	.stabs	"duration:r(0,3)",64,0,181,5
-	.stabn	192,0,0,LBB24-__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
-	.stabn	224,0,0,LBE24-__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
+	.stabs	"duration:r(0,3)",64,0,185,5
+	.stabn	192,0,0,LBB26-__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
+	.stabn	224,0,0,LBE26-__ZN8MyMoblet7vibrateERN8Wormhole13MessageStreamE
 Lscope29:
-	.stabs	"_ZN8MyMoblet4beepERN8Wormhole13MessageStreamE:f(0,6)",36,0,186,__ZN8MyMoblet4beepERN8Wormhole13MessageStreamE
-	.stabs	"this:P(0,93)",64,0,186,12
-	.stabs	"message:P(116,42)",64,0,186,13
+	.stabs	"_ZN8MyMoblet4beepERN8Wormhole13MessageStreamE:f(0,6)",36,0,190,__ZN8MyMoblet4beepERN8Wormhole13MessageStreamE
+	.stabs	"this:P(0,93)",64,0,190,12
+	.stabs	"message:P(116,42)",64,0,190,13
 
 .func __ZN8MyMoblet4beepERN8Wormhole13MessageStreamE, 2, void
-	.line 186
+	.line 190
 	push rt,fr
 	ld   fr,sp
 	add  fr,#0x8
-	.dlab LBB25
-	.line 188
+	.dlab LBB27
+	.line 192
 	ld   i0,#0x2
 	call &_maGetDataSize ; call non-native
 	ld   i0,#0x2
 	ld   i1,#0x0
 	ld   i2,r14
 	call &_maSoundPlay ; call non-native
-	.dlab LBE25
+	.dlab LBE27
 	pop  rt,fr
 	ret
 Lscope30:
-	.stabs	"MAMain:F(0,3)",36,0,193,_MAMain
+	.stabs	"MAMain:F(0,3)",36,0,197,_MAMain
 	.global	_MAMain
 
 .func _MAMain, 0, int
-	.line 193
+	.line 197
 	push rt,d1
 	ld   fr,sp
 	add  fr,#0x10
-	.dlab LBB26
-	.line 194
+	.dlab LBB28
+	.line 198
 	ld   i0,#0x100
 	call &__Znwm ; call non-native
 	ld   d0,r14
@@ -1662,61 +1683,61 @@ Lscope30:
 	ld   d1,[r14,64]
 	ld   i0,d0
 	call d1 ; call non-native
-	.dlab LBE26
-	.line 196
+	.dlab LBE28
+	.line 200
 	ld   r14,#0x0
 	pop  rt,d1
 	ret
 Lscope31:
 .data
-LC21:
+LC20:
 	.ascii "TEST_EMULATOR\0"
 .code
-	.stabs	"_Z41__static_initialization_and_destruction_0ii:f(0,6)",36,0,196,__Z41__static_initialization_and_destruction_0ii
-	.stabs	"__initialize_p:P(0,3)",64,0,196,12
-	.stabs	"__priority:P(0,3)",64,0,196,13
+	.stabs	"_Z41__static_initialization_and_destruction_0ii:f(0,6)",36,0,200,__Z41__static_initialization_and_destruction_0ii
+	.stabs	"__initialize_p:P(0,3)",64,0,200,12
+	.stabs	"__priority:P(0,3)",64,0,200,13
 
 .func __Z41__static_initialization_and_destruction_0ii, 2, void
-	.line 196
+	.line 200
 	push rt,fr
 	ld   fr,sp
 	add  fr,#0x8
-	.stabs	"c:/MoSync/include/Ads/Banner.h",132,0,0,Ltext10
-Ltext10:
-	.line 99
-	ld   r14,#0xffff
-	jc   eq,i1,r14,#L67
-L63:
-	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext11
-Ltext11:
-	.line 196
-	pop  rt,fr
-	ret
-L67:
 	.stabs	"c:/MoSync/include/Ads/Banner.h",132,0,0,Ltext12
 Ltext12:
 	.line 99
-	ld   r14,#0x1
-	jc   eq,i0,r14,#L68
-	ld   r14,#0x0
-	jc   ne,i0,r14,#L63
-	ld   i0,#__ZN3Ads13TEST_EMULATORE
-	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
+	ld   r14,#0xffff
+	jc   eq,i1,r14,#L68
+L64:
 	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext13
 Ltext13:
-	.line 196
+	.line 200
 	pop  rt,fr
 	ret
 L68:
 	.stabs	"c:/MoSync/include/Ads/Banner.h",132,0,0,Ltext14
 Ltext14:
 	.line 99
+	ld   r14,#0x1
+	jc   eq,i0,r14,#L69
+	ld   r14,#0x0
+	jc   ne,i0,r14,#L64
 	ld   i0,#__ZN3Ads13TEST_EMULATORE
-	ld   i1,#LC21
-	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
+	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
 	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext15
 Ltext15:
-	.line 196
+	.line 200
+	pop  rt,fr
+	ret
+L69:
+	.stabs	"c:/MoSync/include/Ads/Banner.h",132,0,0,Ltext16
+Ltext16:
+	.line 99
+	ld   i0,#__ZN3Ads13TEST_EMULATORE
+	ld   i1,#LC20
+	call &__ZN6MAUtil11BasicStringIcEC1EPKc ; call non-native
+	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext17
+Ltext17:
+	.line 200
 	pop  rt,fr
 	ret
 Lscope32:
@@ -1762,17 +1783,17 @@ Lscope34:
 	pop  rt,fr
 	ret
 Lscope35:
-	.stabs	"_ZN8MyMobletD1Ev:f(0,6)",36,0,196,__ZN8MyMobletD1Ev
+	.stabs	"_ZN8MyMobletD1Ev:f(0,6)",36,0,200,__ZN8MyMobletD1Ev
 	.stabs	"this:P(0,93)",64,0,27,4
 
 .func __ZN8MyMobletD1Ev, 1, void
-	.line 196
+	.line 200
 	push rt,d0
 	ld   fr,sp
 	add  fr,#0xc
 	ld   d0,i0
-	.dlab LBB27
-	.line 196
+	.dlab LBB29
+	.line 200
 	ld   r14,#__ZTV8MyMoblet+8
 	ld   [i0],r14
 	ld   r14,#__ZTV8MyMoblet+200
@@ -1789,22 +1810,22 @@ Lscope35:
 	ld   [i0,212],r14
 	add  i0,#0xfc
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	.dlab LBB28
-	.dlab LBB29
-	.stabs	"c:/MoSync/include/NativeUI/WebViewListener.h",132,0,0,Ltext16
-Ltext16:
+	.dlab LBB30
+	.dlab LBB31
+	.stabs	"c:/MoSync/include/NativeUI/WebViewListener.h",132,0,0,Ltext18
+Ltext18:
 	.line 64
 	ld   r14,#__ZTVN8NativeUI15WebViewListenerE+8
 	ld   [d0,208],r14
-	.dlab LBE29
-	.dlab LBE28
+	.dlab LBE31
+	.dlab LBE30
 	.line 65
 	ld   i0,d0
 	call &__ZN8Wormhole12HybridMobletD2Ev ; call non-native
-	.dlab LBE27
-	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext17
-Ltext17:
-	.line 196
+	.dlab LBE29
+	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext19
+Ltext19:
+	.line 200
 	pop  rt,d0
 	ret
 Lscope36:
@@ -1850,17 +1871,17 @@ Lscope38:
 	pop  rt,fr
 	ret
 Lscope39:
-	.stabs	"_ZN8MyMobletD0Ev:f(0,6)",36,0,196,__ZN8MyMobletD0Ev
+	.stabs	"_ZN8MyMobletD0Ev:f(0,6)",36,0,200,__ZN8MyMobletD0Ev
 	.stabs	"this:P(0,93)",64,0,27,4
 
 .func __ZN8MyMobletD0Ev, 1, void
-	.line 196
+	.line 200
 	push rt,d0
 	ld   fr,sp
 	add  fr,#0xc
 	ld   d0,i0
-	.dlab LBB30
-	.line 196
+	.dlab LBB32
+	.line 200
 	ld   r14,#__ZTV8MyMoblet+8
 	ld   [i0],r14
 	ld   r14,#__ZTV8MyMoblet+200
@@ -1877,49 +1898,49 @@ Lscope39:
 	ld   [i0,212],r14
 	add  i0,#0xfc
 	call &__ZN6MAUtil11BasicStringIcED1Ev ; call non-native
-	.dlab LBB31
-	.dlab LBB32
-	.stabs	"c:/MoSync/include/NativeUI/WebViewListener.h",132,0,0,Ltext18
-Ltext18:
+	.dlab LBB33
+	.dlab LBB34
+	.stabs	"c:/MoSync/include/NativeUI/WebViewListener.h",132,0,0,Ltext20
+Ltext20:
 	.line 64
 	ld   r14,#__ZTVN8NativeUI15WebViewListenerE+8
 	ld   [d0,208],r14
-	.dlab LBE32
-	.dlab LBE31
+	.dlab LBE34
+	.dlab LBE33
 	.line 65
 	ld   i0,d0
 	call &__ZN8Wormhole12HybridMobletD2Ev ; call non-native
-	.dlab LBE30
-	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext19
-Ltext19:
-	.line 196
+	.dlab LBE32
+	.stabs	"C:\\Users\\prime\\git\\School App\\downloadingHTML\\testing 46666\\main.cpp",132,0,0,Ltext21
+Ltext21:
+	.line 200
 	ld   i0,d0
 	call &__ZdlPv ; call non-native
 	pop  rt,d0
 	ret
 Lscope40:
-	.stabs	"_GLOBAL__I_MAMain:f(0,6)",36,0,197,__GLOBAL__I_MAMain
+	.stabs	"_GLOBAL__I_MAMain:f(0,6)",36,0,201,__GLOBAL__I_MAMain
 
 .func __GLOBAL__I_MAMain, 0, void
-	.line 197
+	.line 201
 	push rt,fr
 	ld   fr,sp
 	add  fr,#0x8
-	.line 197
+	.line 201
 	ld   i0,#0x1
 	ld   i1,#0xffff
 	call &__Z41__static_initialization_and_destruction_0ii ; call non-native
 	pop  rt,fr
 	ret
 Lscope41:
-	.stabs	"_GLOBAL__D_MAMain:f(0,6)",36,0,198,__GLOBAL__D_MAMain
+	.stabs	"_GLOBAL__D_MAMain:f(0,6)",36,0,202,__GLOBAL__D_MAMain
 
 .func __GLOBAL__D_MAMain, 0, void
-	.line 198
+	.line 202
 	push rt,fr
 	ld   fr,sp
 	add  fr,#0x8
-	.line 198
+	.line 202
 	ld   i0,#0x0
 	ld   i1,#0xffff
 	call &__Z41__static_initialization_and_destruction_0ii ; call non-native
