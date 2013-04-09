@@ -30,13 +30,16 @@ class MyMoblet : public HybridMoblet,public WebViewListener, public ButtonListen
 
     char* loginJS;
     char* getHTML_JS;
+    char* getHTML_JS2;
     char* vibrateJS;
     char* data;
-
+    char* data2;
     VerticalLayout* mMainLayout;
 	EditBox* box;
+	EditBox* box2;
 	Button* mSubmitButton;
 	Label* label;
+	Button* getHTMLButton;
 
 
 	int c;
@@ -50,20 +53,26 @@ public:
 				"script.type='text/javascript'; script.charset='utf-8';"
 				" script.src = 'https://irushd.opendrive.com/files/OV82MzkzODAxX0ZzY3RHXzQ5ZTE/wormhole.js';"
 				"var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
+
+		getHTML_JS2="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); "
+								"mosync.bridge.send(['Custom', 'showHTML', x]);";
+
 		loginJS ="var script = document.createElement('script');script.type='text/javascript';"
 				" script.charset='utf-8'; script.src = 'js/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];"
 				"headEl.appendChild(script);document.addEventListener('deviceready', onDeviceReady, false);"
 				"var d = device.Wormhole.toString();alert(d);alert(789);";
+
 		getHTML_JS="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); "
 				"mosync.bridge.send(['Custom', 'showHTML', x]);";
-		vibrateJS="mosync.bridge.send(['Custom', 'Vibrate', '500']);";
 
+		vibrateJS="mosync.bridge.send(['Custom', 'Vibrate', '500']);";
 
 /////////////////////////////////////////////
 		showPage("https://secure.npu.edu");
-//		createUIlogin();
-		openWormhole(getWebView()->getWidgetHandle());
+//		showPage("https://www.google.com");
+		createUIlogin();
 		initialize();
+		openWormhole(getWebView()->getWidgetHandle());
 	 	enableWebViewMessages();
 ////////////////////////////////////////////
 
@@ -88,18 +97,35 @@ public:
 	    {
 			 if ( mSubmitButton == button )
 			{
+				String user;
+				String password;
+				String JS;
 				showWebView();
 				getWebView()->addWebViewListener(this);
-					//	showPage("App.html");
-				loginJS = "";
-//				mWebView->callJS("alert('getHTML part called');");
-				mWebView->callJS("mosync.bridge.send([\"Custom\", \"Beep\"]);");
-//				mWebView->callJS(getHTML_JS);
+
+				user = box->getText();
+				password = box2->getText();
+				JS = "var elem = document.getElementById('txtUserID'); elem.autocomplete = \"off\"; elem.value = '";
+				JS += user;
+				JS += "'; elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\"); elem.autocomplete = \"off\"; elem.value = '";
+				JS +=password;
+				JS += "';elem.autocomplete = \"off\";elem = document.getElementById(\"btnSignin\"); elem.click();";
+				mWebView->callJS(JS.c_str());
 			}
+
+			 else  if ( getHTMLButton == button )
+				{
+					mWebView->callJS("alert('getHTML part called');");
+					mWebView->callJS("mosync.bridge.send([\"Custom\", \"Beep\"]);");
+					mWebView->callJS(getHTML_JS);
+				}
+
+
 	    }
+
+
 	void createUIlogin(){
 		mMainLayout = new VerticalLayout();
-
 
 		mMainLayout->fillSpaceHorizontally();
 		mMainLayout->fillSpaceVertically();
@@ -110,14 +136,14 @@ public:
 		label->fillSpaceHorizontally();
 		label->wrapContentVertically();
 		label->setFontSize(55);
-		label->setTextHorizontalAlignment(MAW_ALIGNMENT_CENTER);
+		label->setTextHorizontalAlignment(MAW_ALIGNMENT_LEFT);
 		label->setText("NPU\n Learning Management\n App");
 		mMainLayout->addChild(label);
 		label = new Label();
 		label->fillSpaceHorizontally();
 		label->wrapContentVertically();
 		label->setFontSize(35);
-		label->setTextHorizontalAlignment(MAW_ALIGNMENT_CENTER);
+		label->setTextHorizontalAlignment(MAW_ALIGNMENT_LEFT);
 		label->setText("Student ID:");
 		mMainLayout->addChild(label);
 		box = new EditBox();
@@ -131,10 +157,10 @@ public:
 		label->setTextHorizontalAlignment(MAW_ALIGNMENT_CENTER);
 		label->setText("Password:");
 		mMainLayout->addChild(label);
-		box = new EditBox();
-		box->fillSpaceHorizontally();
-		box->wrapContentVertically();
-		mMainLayout->addChild(box);
+		box2 = new EditBox();
+		box2->fillSpaceHorizontally();
+		box2->wrapContentVertically();
+		mMainLayout->addChild(box2);
 		mSubmitButton = new Button();
 		mSubmitButton->fillSpaceHorizontally();
 		mSubmitButton->wrapContentVertically();
@@ -159,29 +185,28 @@ public:
 		box->fillSpaceHorizontally();
 		box->fillSpaceVertically();
 		mMainLayout->addChild(box);
-		mSubmitButton = new Button();
-		mSubmitButton->fillSpaceHorizontally();
-		mSubmitButton->wrapContentVertically();
-		mSubmitButton->setTextHorizontalAlignment(MAW_ALIGNMENT_CENTER);
-		mSubmitButton->setTextVerticalAlignment(MAW_ALIGNMENT_CENTER);
-		mSubmitButton->setText("HTML");
-		mMainLayout->addChild(mSubmitButton);
-		mSubmitButton->addButtonListener(this);
+		getHTMLButton = new Button();
+		getHTMLButton->fillSpaceHorizontally();
+		getHTMLButton->wrapContentVertically();
+		getHTMLButton->setTextHorizontalAlignment(MAW_ALIGNMENT_CENTER);
+		getHTMLButton->setTextVerticalAlignment(MAW_ALIGNMENT_CENTER);
+		getHTMLButton->setText("Assignments Details");
+		mMainLayout->addChild(getHTMLButton);
+		getHTMLButton->addButtonListener(this);
 		openWormhole(getWebView()->getWidgetHandle());
 		getWebView()->setVisible(false);
 		maWidgetScreenShow(0);
 		mScreen->show();
-
 	}
 
 	void destroyUIgetHTML(){
 		delete mMainLayout;
 		delete mScreen;
 		delete box;
-		delete mSubmitButton;
+		delete getHTMLButton;
 	}
 
-	void delUIgetHTML(){
+	void destroyUIlogin(){
 		delete mMainLayout;
 		delete mScreen;
 		delete box;
@@ -199,14 +224,13 @@ public:
 						}
 						if(c==1) {loginJS="";	}
 						if(c==2) {loginJS = "__doPostBack('Header1$_ctl3','');";
-				//	mWebView->setVisible(false);
-				//	maWidgetScreenShow(0);
-				//	mScreen->show();
+
 									}
 						if(c==3) {loginJS = "__doPostBack('Left1$_ctl5','');";}
 						if(c==4) {loginJS = "var z =  document.getElementById('CourseList1_DropDownList');z.options.selectedIndex=3;__doPostBack('CourseList1$DropDownList','');";}
 						if(c==5) { loginJS =data;
 									webView->callJS("alert('Loading Wormhole.js');");
+									createUIgetHTML();
 						}
 						if(c==6 ){
 							loginJS =vibrateJS;
