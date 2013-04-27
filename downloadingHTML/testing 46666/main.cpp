@@ -48,6 +48,7 @@ class MyMoblet : public HybridMoblet,public WebViewListener, public ButtonListen
 public:
 	MyMoblet()
 	{
+		//printf("sdaf");
 		c=1;
 		data=	"var script = document.createElement('script');"
 				"script.type='text/javascript'; script.charset='utf-8';"
@@ -100,6 +101,7 @@ public:
 				String user;
 				String password;
 				String JS;
+
 				showWebView();
 				getWebView()->addWebViewListener(this);
 
@@ -119,8 +121,6 @@ public:
 					mWebView->callJS("mosync.bridge.send([\"Custom\", \"Beep\"]);");
 					mWebView->callJS(getHTML_JS);
 				}
-
-
 	    }
 
 
@@ -158,6 +158,7 @@ public:
 		label->setText("Password:");
 		mMainLayout->addChild(label);
 		box2 = new EditBox();
+		box2->setInputFlag(EDIT_BOX_INPUT_FLAG_PASSWORD);
 		box2->fillSpaceHorizontally();
 		box2->wrapContentVertically();
 		mMainLayout->addChild(box2);
@@ -174,16 +175,18 @@ public:
 	}
 
 
-
 	void createUIgetHTML(){
 		mMainLayout = new VerticalLayout();
 		mMainLayout->fillSpaceHorizontally();
 		mMainLayout->fillSpaceVertically();
 		mScreen = new Screen();
 		mScreen->setMainWidget(mMainLayout);
-		box = new EditBox();
+		box = new EditBox(EDIT_BOX_MULTI_LINE);
 		box->fillSpaceHorizontally();
 		box->fillSpaceVertically();
+		box->wrapContentHorizontally();
+		box->setText("HTMLwill beputhere.essgklerjglkejsrgklfjdskgjfkgjdfskgjsdfjgkhdsfkjgshdfkjghsdkjghskjdd");
+		box->setBackgroundColor(255);
 		mMainLayout->addChild(box);
 		getHTMLButton = new Button();
 		getHTMLButton->fillSpaceHorizontally();
@@ -200,10 +203,10 @@ public:
 	}
 
 	void destroyUIgetHTML(){
-		delete mMainLayout;
-		delete mScreen;
 		delete box;
 		delete getHTMLButton;
+		delete mMainLayout;
+		delete mScreen;
 	}
 
 	void destroyUIlogin(){
