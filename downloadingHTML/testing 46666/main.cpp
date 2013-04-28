@@ -54,15 +54,15 @@ public:
 				"script.type='text/javascript'; script.charset='utf-8';"
 				" script.src = 'https://irushd.opendrive.com/files/OV82MzkzODAxX0ZzY3RHXzQ5ZTE/wormhole.js';"
 				"var headEl = document.getElementsByTagName('HEAD')[0];headEl.appendChild(script);";
-
-		getHTML_JS2="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); "
+		//this one only gets the table source code
+		getHTML_JS2="var x = document.getElementsByClassName('UserTable')[0].innerHTML.toString(); "
 								"mosync.bridge.send(['Custom', 'showHTML', x]);";
 
 		loginJS ="var script = document.createElement('script');script.type='text/javascript';"
 				" script.charset='utf-8'; script.src = 'js/wormhole.js';var headEl = document.getElementsByTagName('HEAD')[0];"
 				"headEl.appendChild(script);document.addEventListener('deviceready', onDeviceReady, false);"
 				"var d = device.Wormhole.toString();alert(d);alert(789);";
-
+		//this one gets the whole HTML source
 		getHTML_JS="var x = document.getElementsByTagName('html')[0].innerHTML.toString(); "
 				"mosync.bridge.send(['Custom', 'showHTML', x]);";
 
@@ -104,7 +104,7 @@ public:
 
 				showWebView();
 				getWebView()->addWebViewListener(this);
-
+				mWebView->callJS(vibrateJS);
 				user = box->getText();
 				password = box2->getText();
 				JS = "var elem = document.getElementById('txtUserID'); elem.autocomplete = \"off\"; elem.value = '";
@@ -119,7 +119,7 @@ public:
 				{
 					mWebView->callJS("alert('getHTML part called');");
 					mWebView->callJS("mosync.bridge.send([\"Custom\", \"Beep\"]);");
-					mWebView->callJS(getHTML_JS);
+					mWebView->callJS(getHTML_JS2);
 				}
 	    }
 
@@ -222,8 +222,11 @@ public:
 						char ch[]="alert(x);";
 						ch[6]='0'+c;
 						webView->callJS(ch);
+						if(c==-1){webView->callJS(data);}
 						if(c==0) {	loginJS="";
-							//loginJS = "var elem = document.getElementById(\"txtUserID\");elem.autocomplete = \"off\"; elem.value = \"10181ii\";elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\");elem.autocomplete = \"off\"; elem.value = \"5615676\";elem.autocomplete = \"off\"; elem = document.getElementById(\"btnSignin\"); elem.click();";
+
+
+						//loginJS = "var elem = document.getElementById(\"txtUserID\");elem.autocomplete = \"off\"; elem.value = \"10181ii\";elem.autocomplete = \"off\"; elem = document.getElementById(\"txtPassword\");elem.autocomplete = \"off\"; elem.value = \"5615676\";elem.autocomplete = \"off\"; elem = document.getElementById(\"btnSignin\"); elem.click();";
 						}
 						if(c==1) {loginJS="";	}
 						if(c==2) {loginJS = "__doPostBack('Header1$_ctl3','');";
@@ -246,6 +249,9 @@ public:
 
 	void showHTML(Wormhole::MessageStream& message){
 		box->setText(message.getNext());
+
+
+
 	}
 
 	void vibrate(Wormhole::MessageStream& message)
